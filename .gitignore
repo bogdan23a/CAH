@@ -14,3 +14,4 @@ out/
 .factorypath
 src/main/resources/db/certs/
 src/main/resources/db/ca
+docker/data/*
