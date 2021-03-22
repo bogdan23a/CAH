@@ -410,3 +410,9 @@ I210322 23:28:53.247342 26 storage/rocksdb.go:102  [db/version_set.cc:3560] Crea
 I210322 23:28:53.254614 26 storage/rocksdb.go:102  [db/version_set.cc:3086] More existing levels in DB than needed. max_bytes_for_level_multiplier may not be guaranteed.
 I210322 23:28:53.260606 26 storage/rocksdb.go:102  EVENT_LOG_v1 {"time_micros": 1616455733260520, "job": 1, "event": "recovery_finished"}
 I210322 23:28:53.277825 26 storage/rocksdb.go:102  DB pointer 0x7fdd0c899000
+I210322 23:42:49.964988 11267 storage/rocksdb.go:102  bloom filter utility:    -nan%
+I210322 23:42:49.965602 11267 storage/rocksdb.go:102  [db/db_impl.cc:392] Shutdown: canceling all background work
+I210322 23:42:49.966549 11267 storage/rocksdb.go:102  [db/db_impl.cc:565] Shutdown complete
+I210322 23:42:49.974773 11267 storage/rocksdb.go:102  bloom filter utility:    73.3%
+I210322 23:42:49.975077 11267 storage/rocksdb.go:102  [db/db_impl.cc:392] Shutdown: canceling all background work
+I210322 23:42:49.981396 11267 storage/rocksdb.go:102  [db/db_impl.cc:565] Shutdown complete

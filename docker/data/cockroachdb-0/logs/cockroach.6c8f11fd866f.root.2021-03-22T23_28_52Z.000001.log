@@ -334,3 +334,45 @@ gossip client (0/3 cur/max conns)
 gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
 I210322 23:41:53.416423 127 server/status/runtime.go:498  [n1] runtime stats: 185 MiB RSS, 170 goroutines, 78 MiB/39 MiB/119 MiB GO alloc/idle/total, 28 MiB/34 MiB CGO alloc/total, 28.7 CGO/sec, 0.7/0.2 %(u/s)time, 0.0 %gc (0x), 1.4 KiB/1.2 KiB (r/w)net
 I210322 23:42:03.414509 127 server/status/runtime.go:498  [n1] runtime stats: 186 MiB RSS, 169 goroutines, 86 MiB/33 MiB/119 MiB GO alloc/idle/total, 28 MiB/34 MiB CGO alloc/total, 55.1 CGO/sec, 0.7/0.4 %(u/s)time, 0.0 %gc (0x), 1.4 KiB/1.4 KiB (r/w)net
+I210322 23:42:13.413729 127 server/status/runtime.go:498  [n1] runtime stats: 186 MiB RSS, 168 goroutines, 92 MiB/27 MiB/119 MiB GO alloc/idle/total, 28 MiB/34 MiB CGO alloc/total, 26.7 CGO/sec, 0.5/0.3 %(u/s)time, 0.0 %gc (0x), 1.6 KiB/1.6 KiB (r/w)net
+I210322 23:42:23.417271 127 server/status/runtime.go:498  [n1] runtime stats: 186 MiB RSS, 169 goroutines, 99 MiB/22 MiB/119 MiB GO alloc/idle/total, 28 MiB/34 MiB CGO alloc/total, 26.8 CGO/sec, 0.6/0.3 %(u/s)time, 0.0 %gc (1x), 1.0 KiB/1.0 KiB (r/w)net
+I210322 23:42:33.414961 127 server/status/runtime.go:498  [n1] runtime stats: 187 MiB RSS, 171 goroutines, 59 MiB/56 MiB/119 MiB GO alloc/idle/total, 28 MiB/34 MiB CGO alloc/total, 32.2 CGO/sec, 0.6/0.3 %(u/s)time, 0.0 %gc (0x), 1.4 KiB/1.4 KiB (r/w)net
+I210322 23:42:43.414946 127 server/status/runtime.go:498  [n1] runtime stats: 187 MiB RSS, 169 goroutines, 66 MiB/51 MiB/119 MiB GO alloc/idle/total, 28 MiB/34 MiB CGO alloc/total, 23.0 CGO/sec, 0.5/0.3 %(u/s)time, 0.0 %gc (0x), 1.0 KiB/1.0 KiB (r/w)net
+I210322 23:42:47.026703 1 cli/start.go:919  received signal 'terminated'
+I210322 23:42:47.027182 1 cli/start.go:1006  initiating graceful shutdown of server
+I210322 23:42:48.980099 11267 server/drain.go:173  [server drain process] drain remaining: 13
+I210322 23:42:48.980566 11267 server/drain.go:175  [server drain process] drain details: SQL clients: 10, table leases: 2, liveness record: 1
+I210322 23:42:49.183171 11267 server/drain.go:173  [server drain process] drain remaining: 0
+I210322 23:42:49.183578 11267 util/stop/stopper.go:539  [server drain process] quiescing
+I210322 23:42:49.951075 126 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (gc): node unavailable; try another peer
+I210322 23:42:49.952139 126 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (merge): node unavailable; try another peer
+I210322 23:42:49.952928 126 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (split): node unavailable; try another peer
+W210322 23:42:49.951391 266 jobs/registry.go:1224  job 643511285378056193: canceling due to liveness failure
+I210322 23:42:49.953897 126 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (replicate): node unavailable; try another peer
+I210322 23:42:49.955139 126 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (replicaGC): node unavailable; try another peer
+I210322 23:42:49.955675 126 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (raftlog): node unavailable; try another peer
+W210322 23:42:49.954490 266 jobs/registry.go:1224  job 643510696069103617: canceling due to liveness failure
+E210322 23:42:49.954572 494 jobs/registry.go:955  [n1] job 643511285378056193: adoption completed with error job 643511285378056193: node liveness error: restarting in background
+I210322 23:42:49.956130 126 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (raftsnapshot): node unavailable; try another peer
+I210322 23:42:49.957282 126 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (consistencyChecker): node unavailable; try another peer
+I210322 23:42:49.957625 126 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (timeSeriesMaintenance): node unavailable; try another peer
+W210322 23:42:49.956451 266 jobs/registry.go:1224  job 643510494621204481: canceling due to liveness failure
+E210322 23:42:49.956469 520 jobs/registry.go:955  [n1] job 643510696069103617: adoption completed with error job 643510696069103617: node liveness error: restarting in background
+W210322 23:42:49.956946 494 kv/txn.go:607  [n1] failure aborting transaction: node unavailable; try another peer; abort caused by: context canceled
+W210322 23:42:49.958378 266 jobs/registry.go:1224  job 643510223130984449: canceling due to liveness failure
+E210322 23:42:49.958406 512 jobs/registry.go:955  [n1] job 643510494621204481: adoption completed with error job 643510494621204481: node liveness error: restarting in background
+W210322 23:42:49.958925 520 kv/txn.go:607  [n1] failure aborting transaction: node unavailable; try another peer; abort caused by: context canceled
+E210322 23:42:49.959495 494 jobs/registry.go:959  [n1] job 643511285378056193: failed querying status: context canceled
+W210322 23:42:49.959778 266 jobs/registry.go:1224  job 643515460865097729: canceling due to liveness failure
+E210322 23:42:49.959880 552 jobs/registry.go:955  [n1] job 643510223130984449: adoption completed with error job 643510223130984449: node liveness error: restarting in background
+W210322 23:42:49.960134 512 kv/txn.go:607  [n1] failure aborting transaction: node unavailable; try another peer; abort caused by: context canceled
+E210322 23:42:49.960501 520 jobs/registry.go:959  [n1] job 643510696069103617: failed querying status: context canceled
+E210322 23:42:49.961287 695 jobs/registry.go:955  [n1] job 643515460865097729: adoption completed with error job 643515460865097729: node liveness error: restarting in background
+W210322 23:42:49.962606 695 kv/txn.go:607  [n1] failure aborting transaction: node unavailable; try another peer; abort caused by: context canceled
+W210322 23:42:49.961465 552 kv/txn.go:607  [n1] failure aborting transaction: node unavailable; try another peer; abort caused by: context canceled
+E210322 23:42:49.961853 512 jobs/registry.go:959  [n1] job 643510494621204481: failed querying status: context canceled
+E210322 23:42:49.962872 695 jobs/registry.go:959  [n1] job 643515460865097729: failed querying status: context canceled
+E210322 23:42:49.963317 552 jobs/registry.go:959  [n1] job 643510223130984449: failed querying status: context canceled
+I210322 23:42:49.964711 11267 storage/rocksdb.go:746  closing rocksdb instance at "/cockroach/cockroach-data/cockroach-temp610928593"
+I210322 23:42:49.974359 11267 storage/rocksdb.go:746  closing rocksdb instance at "/cockroach/cockroach-data"
+I210322 23:42:49.982342 1 cli/start.go:1048  server drained and shutdown completed
