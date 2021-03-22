@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.cardsagainsthumanity
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [ annotation-api, app-name, consul, discovery-consul, flyway, gradle, http-client, java, java-application, jdbc-hikari, junit, logback, lombok, netty-server, postgres, readme, shade, testcontainers, views-pebble, yaml ]

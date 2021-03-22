@@ -1,0 +1,47 @@
+micronaut:
+  application:
+    name: cardsagainsthumanity
+  server:
+    port: 1000
+  config-client:
+    enabled: true
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:26257/cardsagainsthumanity
+    driverClassName: org.postgresql.Driver
+    username: 'dev'
+    password: 'rengarmergelagradinita'
+    schema-generate: NONE
+    dialect: POSTGRES
+jpa:
+  default:
+    packages-to-scan:
+      - 'com.cardsagainsthumanity'
+    properties:
+      hibernate:
+      hbm2ddl:
+        auto: update
+      show_sql: true
+#consul:
+#  client:
+#    port: 8500
+#    registration:
+#      enabled: true
+#    defaultZone: ${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}
+flyway:
+  datasources:
+    default:
+      enabled: true
+      locations:
+        - classpath:db/migration
+#flyway:
+#  datasources:
+#    default:
+#      enabled: true
+#    url: jdbc:postgresql://localhost:26257/cardsagainsthumanity
+#    username: 'dev'
+#    password: 'rengarmergelagradinita'
+endpoints:
+  flyway:
+    enabled: true
+    sensitive: false

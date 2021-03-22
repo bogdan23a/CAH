@@ -1,0 +1,7 @@
+{
+  "service": {
+    "name": "cardsagainsthumanity",
+    "tags": [],
+    "port": 1000
+  }
+}

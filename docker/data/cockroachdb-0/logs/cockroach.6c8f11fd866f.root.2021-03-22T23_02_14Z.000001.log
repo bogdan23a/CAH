@@ -1,0 +1,211 @@
+I210322 23:02:14.342037 1 util/log/sync_buffer.go:70  [config] file created at: 2021/03/22 23:02:14
+I210322 23:02:14.342037 1 util/log/sync_buffer.go:70  [config] running on machine: 6c8f11fd866f
+I210322 23:02:14.342037 1 util/log/sync_buffer.go:70  [config] binary: CockroachDB CCL v20.1.1 (x86_64-unknown-linux-gnu, built 2020/05/19 14:46:06, go1.13.9)
+I210322 23:02:14.342037 1 util/log/sync_buffer.go:70  [config] arguments: [/cockroach/cockroach start --insecure]
+I210322 23:02:14.342037 1 util/log/sync_buffer.go:70  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I210322 23:02:14.342037 1 cli/start.go:1223  logging to directory /cockroach/cockroach-data/logs
+W210322 23:02:14.348988 1 cli/start.go:1272  RUNNING IN INSECURE MODE!
+
+- Your cluster is open for any client that can access <all your IP addresses>.
+- Any user, even root, can log in without providing a password.
+- Any user, connecting as root, can read or write any data in your cluster.
+- There is no network encryption nor authentication, and thus no confidentiality.
+
+Check out how to secure your cluster: https://www.cockroachlabs.com/docs/v20.1/secure-a-cluster.html
+I210322 23:02:14.349359 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+W210322 23:02:14.349370 1 cli/start.go:1144  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (497 MiB).
+I210322 23:02:14.349625 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+I210322 23:02:14.349633 1 cli/start.go:1286  CockroachDB CCL v20.1.1 (x86_64-unknown-linux-gnu, built 2020/05/19 14:46:06, go1.13.9)
+W210322 23:02:14.358111 1 cli/start.go:548  running 'cockroach start' without --join is deprecated.
+Consider using 'cockroach start-single-node' or 'cockroach init' instead.
+I210322 23:02:14.373987 1 server/status/recorder.go:597  available memory from cgroups (8.0 EiB) is unsupported, using system memory 1.9 GiB instead: 
+I210322 23:02:14.374007 1 server/config.go:404  system total memory: 1.9 GiB
+I210322 23:02:14.374035 1 server/config.go:406  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   497 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I210322 23:02:14.374045 1 cli/start.go:1122  using local environment variables: COCKROACH_CHANNEL=official-docker
+I210322 23:02:14.374052 1 cli/start.go:1129  process identity: uid 0 euid 0 gid 0 egid 0
+I210322 23:02:14.374089 1 cli/start.go:697  starting cockroach node
+I210322 23:02:14.379756 15 storage/rocksdb.go:606  opening rocksdb instance at "/cockroach/cockroach-data/cockroach-temp793077268"
+I210322 23:02:14.432551 15 server/server.go:1065  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I210322 23:02:14.433910 15 storage/rocksdb.go:606  opening rocksdb instance at "/cockroach/cockroach-data"
+I210322 23:02:14.553311 15 server/config.go:578  [n?] 1 storage engine initialized
+I210322 23:02:14.553318 15 server/config.go:581  [n?] RocksDB cache size: 128 MiB
+I210322 23:02:14.553322 15 server/config.go:581  [n?] store 0: RocksDB, max size 0 B, max open file limit 1043576
+W210322 23:02:14.566299 15 cli/start.go:1068  neither --listen-addr nor --advertise-addr was specified.
+The server will advertise "6c8f11fd866f" to other nodes, is this routable?
+
+Consider using:
+- for local-only servers:  --listen-addr=localhost
+- for multi-node clusters: --advertise-addr=<host/IP addr>
+I210322 23:02:14.571019 15 server/server.go:1111  [n?] Sleeping till wall time 1616454134570983268 to catches up to 1616454134932524572 to ensure monotonicity. Delta: 361.541304ms
+I210322 23:02:14.933151 15 gossip/gossip.go:395  [n1] NodeDescriptor set to node_id:1 address:<network_field:"tcp" address_field:"6c8f11fd866f:26257" > attrs:<> locality:<> ServerVersion:<major_val:20 minor_val:1 patch:0 unstable:0 > build_tag:"v20.1.1" started_at:1616454134932981467 cluster_name:"" sql_address:<network_field:"tcp" address_field:"6c8f11fd866f:26257" > 
+W210322 23:02:14.970642 104 kv/kvserver/replica_range_lease.go:554  can't determine lease status due to node liveness error: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/kv/kvserver.init
+	/go/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/node_liveness.go:44
+runtime.doInit
+	/usr/local/go/src/runtime/proc.go:5222
+runtime.doInit
+	/usr/local/go/src/runtime/proc.go:5217
+runtime.doInit
+	/usr/local/go/src/runtime/proc.go:5217
+runtime.doInit
+	/usr/local/go/src/runtime/proc.go:5217
+runtime.main
+	/usr/local/go/src/runtime/proc.go:190
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1357
+W210322 23:02:14.970740 104 kv/kvserver/store.go:1627  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+I210322 23:02:14.987687 15 server/node.go:428  [n1] initialized store [n1,s1]: disk (capacity=38 TiB, available=4.7 TiB, used=1.2 MiB, logicalBytes=17 MiB), ranges=34, leases=2, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=83.00 p75=3665.00 p90=10941.00 pMax=17968055.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I210322 23:02:14.987831 15 kv/kvserver/stores.go:247  [n1] read 0 node addresses from persistent storage
+I210322 23:02:14.987920 15 server/node.go:649  [n1] connecting to gossip network to verify cluster ID...
+I210322 23:02:14.987935 15 server/node.go:669  [n1] node connected via gossip and verified as part of cluster "f76578ca-4b1c-409d-839e-f9815b7450ce"
+I210322 23:02:14.987998 15 server/node.go:512  [n1] node=1: started with [<no-attributes>=/cockroach/cockroach-data] engine(s) and attributes []
+I210322 23:02:14.989853 15 server/server.go:1636  [n1] starting http server at [::]:8080 (use: 6c8f11fd866f:8080)
+I210322 23:02:14.989868 15 server/server.go:1643  [n1] starting grpc/postgres server at [::]:26257
+I210322 23:02:14.989931 15 server/server.go:1644  [n1] advertising CockroachDB node at 6c8f11fd866f:26257
+I210322 23:02:14.991708 145 sql/temporary_schema.go:459  [n1] running temporary object cleanup background job
+I210322 23:02:15.007425 145 sql/temporary_schema.go:494  [n1] found 0 temporary schemas
+I210322 23:02:15.007433 145 sql/temporary_schema.go:497  [n1] early exiting temporary schema cleaner as no temporary schemas were found
+I210322 23:02:15.007439 145 sql/temporary_schema.go:498  [n1] completed temporary object cleanup job
+I210322 23:02:15.007450 145 sql/temporary_schema.go:575  [n1] temporary object cleaner next scheduled to run at 2021-03-22 23:32:14.99025091 +0000 UTC
+I210322 23:02:15.007806 15 server/server.go:1777  [n1] done ensuring all necessary migrations have run
+I210322 23:02:15.007850 15 server/server.go:2019  [n1] serving sql connections
+I210322 23:02:15.007913 15 cli/start.go:857  [config] clusterID: f76578ca-4b1c-409d-839e-f9815b7450ce
+I210322 23:02:15.008072 15 cli/start.go:866  node startup completed:
+CockroachDB node starting at 2021-03-22 23:02:15.007875835 +0000 UTC (took 0.7s)
+build:               CCL v20.1.1 @ 2020/05/19 14:46:06 (go1.13.9)
+webui:               http://6c8f11fd866f:8080
+sql:                 postgresql://root@6c8f11fd866f:26257?sslmode=disable
+RPC client flags:    /cockroach/cockroach <client cmd> --host=6c8f11fd866f:26257 --insecure
+logs:                /cockroach/cockroach-data/logs
+temp dir:            /cockroach/cockroach-data/cockroach-temp793077268
+external I/O path:   /cockroach/cockroach-data/extern
+store[0]:            path=/cockroach/cockroach-data
+storage engine:      rocksdb
+status:              restarted pre-existing node
+clusterID:           f76578ca-4b1c-409d-839e-f9815b7450ce
+nodeID:              1
+I210322 23:02:15.018959 185 server/server_update.go:55  [n1] no need to upgrade, cluster already at the newest version
+I210322 23:02:15.019272 187 sqlmigrations/migrations.go:668  [n1] starting wait for upgrade finalization before schema change job migration
+I210322 23:02:15.019524 187 sqlmigrations/migrations.go:694  [n1] schema change job migration already complete
+I210322 23:02:15.030758 188 sql/event_log.go:132  [n1] Event: "node_restart", target: 1, info: {Descriptor:{NodeID:1 Address:6c8f11fd866f:26257 Attrs: Locality: ServerVersion:20.1 BuildTag:v20.1.1 StartedAt:1616454134932981467 LocalityAddress:[] ClusterName: SQLAddress:6c8f11fd866f:26257} ClusterID:f76578ca-4b1c-409d-839e-f9815b7450ce StartedAt:1616454134932981467 LastUp:1616454132232120642}
+I210322 23:02:15.043990 274 sql/sqlbase/structured.go:1554  [n1,client=172.18.0.3:52502,hostnossl,user=root] publish: descID=53 (flyway_schema_history) version=5 mtime=1970-01-01 00:00:00 +0000 UTC
+I210322 23:02:15.046814 274 sql/sqlbase/structured.go:1554  [n1,client=172.18.0.3:52502,hostnossl,user=root] publish: descID=54 (users) version=2 mtime=1970-01-01 00:00:00 +0000 UTC
+I210322 23:02:15.055448 274 sql/event_log.go:132  [n1,client=172.18.0.3:52502,hostnossl,user=root] Event: "drop_database", target: 52, info: {DatabaseName:cardsagainsthumanity Statement:DROP DATABASE IF EXISTS cardsagainsthumanity User:root DroppedSchemaObjects:[cardsagainsthumanity.public.flyway_schema_history cardsagainsthumanity.public.users]}
+I210322 23:02:15.055471 274 jobs/registry.go:285  [n1,client=172.18.0.3:52502,hostnossl,user=root] scheduled jobs [643510222960066561]
+I210322 23:02:15.071745 184 jobs/registry.go:1187  job 643510222960066561: resuming execution
+I210322 23:02:15.074410 418 jobs/registry.go:806  [n1] job 643510222960066561: stepping through state running with error <nil>
+I210322 23:02:15.074755 418 sql/schema_changer.go:418  [n1,job=643510222960066561,scExec] schema change on flyway_schema_history (53 v5) mutation 0 starting execution...
+I210322 23:02:15.077178 418 sql/sqlbase/structured.go:1554  [n1,job=643510222960066561,scExec] publish: descID=53 (flyway_schema_history) version=6 mtime=1970-01-01 00:00:00 +0000 UTC
+I210322 23:02:15.080124 418 sql/schema_changer.go:706  [n1,job=643510222960066561,scExec] waiting for a single version of table 53...
+I210322 23:02:15.081532 418 sql/schema_changer.go:708  [n1,job=643510222960066561,scExec] waiting for a single version of table 53... done (at v 6)
+I210322 23:02:15.081674 418 sql/schema_changer.go:418  [n1,job=643510222960066561,scExec] schema change on users (54 v2) mutation 0 starting execution...
+I210322 23:02:15.082973 418 sql/sqlbase/structured.go:1554  [n1,job=643510222960066561,scExec] publish: descID=54 (users) version=3 mtime=1970-01-01 00:00:00 +0000 UTC
+I210322 23:02:15.085212 418 sql/schema_changer.go:706  [n1,job=643510222960066561,scExec] waiting for a single version of table 54...
+I210322 23:02:15.086352 418 sql/schema_changer.go:708  [n1,job=643510222960066561,scExec] waiting for a single version of table 54... done (at v 3)
+I210322 23:02:15.090363 418 jobs/registry.go:806  [n1] job 643510222960066561: stepping through state succeeded with error <nil>
+I210322 23:02:15.091830 568 jobs/registry.go:806  [n1] job 643510223130984449: stepping through state running with error <nil>
+I210322 23:02:15.098914 418 jobs/registry.go:961  [n1] job 643510222960066561: status succeeded after adoption finished
+I210322 23:02:15.108608 274 sql/event_log.go:132  [n1,client=172.18.0.3:52502,hostnossl,user=root] Event: "create_database", target: 55, info: {DatabaseName:cardsagainsthumanity Statement:CREATE DATABASE IF NOT EXISTS cardsagainsthumanity User:root}
+I210322 23:02:16.874384 61 gossip/gossip.go:1527  [n1] node has connected to cluster via gossip
+I210322 23:02:16.874716 61 kv/kvserver/stores.go:266  [n1] wrote 0 node addresses to persistent storage
+I210322 23:02:18.099949 190 server/updates.go:268  [n1] A new version is available: 20.2.6, details: https://www.cockroachlabs.com/docs/releases/v20.2.6.html
+I210322 23:02:24.991230 147 server/status/runtime.go:498  [n1] runtime stats: 150 MiB RSS, 126 goroutines, 53 MiB/68 MiB/76 MiB GO alloc/idle/total, 14 MiB/16 MiB CGO alloc/total, 0.0 CGO/sec, 0.0/0.0 %(u/s)time, 0.0 %gc (9x), 20 KiB/13 KiB (r/w)net
+I210322 23:02:26.988825 969 sql/event_log.go:132  [n1,client=172.18.0.1:64674,hostnossl,user=dev] Event: "create_table", target: 56, info: {TableName:cardsagainsthumanity.public.flyway_schema_history Statement:CREATE TABLE IF NOT EXISTS cardsagainsthumanity.public.flyway_schema_history (installed_rank INT8 NOT NULL PRIMARY KEY, version VARCHAR(50), description VARCHAR(200) NOT NULL, type VARCHAR(20) NOT NULL, script VARCHAR(1000) NOT NULL, checksum INT8, installed_by VARCHAR(100) NOT NULL, installed_on TIMESTAMP NOT NULL DEFAULT now(), execution_time INT8 NOT NULL, success BOOL NOT NULL) User:dev}
+I210322 23:02:26.998825 1062 kv/kvserver/replica_command.go:397  [n1,split,s1,r35/1:/{Table/54-Max}] initiating a split of this range at key /Table/56 [r43] (zone config)
+I210322 23:02:27.013416 969 sql/table.go:991  [n1,client=172.18.0.1:64674,hostnossl,user=dev] queued new schema change job 643510262208888833 for table 56, mutation 1
+I210322 23:02:27.013428 969 sql/sqlbase/structured.go:1554  [n1,client=172.18.0.1:64674,hostnossl,user=dev] publish: descID=56 (flyway_schema_history) version=2 mtime=1970-01-01 00:00:00 +0000 UTC
+I210322 23:02:27.031714 969 sql/event_log.go:132  [n1,client=172.18.0.1:64674,hostnossl,user=dev] Event: "create_index", target: 56, info: {TableName:cardsagainsthumanity.public.flyway_schema_history IndexName:flyway_schema_history_s_idx Statement:CREATE INDEX IF NOT EXISTS flyway_schema_history_s_idx ON cardsagainsthumanity.public.flyway_schema_history (success) User:dev MutationID:1}
+I210322 23:02:27.031754 969 jobs/registry.go:285  [n1,client=172.18.0.1:64674,hostnossl,user=dev] scheduled jobs [643510262208888833]
+I210322 23:02:27.045579 184 jobs/registry.go:1187  job 643510262208888833: resuming execution
+I210322 23:02:27.048508 1226 jobs/registry.go:806  [n1] job 643510262208888833: stepping through state running with error <nil>
+I210322 23:02:27.048906 1226 sql/schema_changer.go:418  [n1,job=643510262208888833,scExec] schema change on flyway_schema_history (56 v2) mutation 1 starting execution...
+I210322 23:02:27.053526 1226 sql/sqlbase/structured.go:1554  [n1,job=643510262208888833,scExec] publish: descID=56 (flyway_schema_history) version=3 mtime=1970-01-01 00:00:00 +0000 UTC
+I210322 23:02:27.058512 1226 sql/schema_changer.go:706  [n1,job=643510262208888833,scExec] waiting for a single version of table 56...
+I210322 23:02:27.060023 1226 sql/schema_changer.go:708  [n1,job=643510262208888833,scExec] waiting for a single version of table 56... done (at v 3)
+I210322 23:02:27.069544 1226 sql/backfill.go:171  [n1,job=643510262208888833,scExec] Running backfill for "flyway_schema_history", v=3, m=1
+I210322 23:02:27.069654 1226 kv/kvserver/replica_command.go:397  [n1,s1,r43/1:/{Table/56-Max}] initiating a split of this range at key /Table/56/2 [r44] (manual)
+I210322 23:02:27.094362 1361 sql/backfill.go:1243  [n1,job=643510262208888833,scExec] validation: table flyway_schema_history row count = 0, took 3.993628ms
+I210322 23:02:27.094669 1360 sql/backfill.go:1199  [n1,job=643510262208888833,scExec] validation: index flyway_schema_history/flyway_schema_history_s_idx row count = 0, time so far 3.831534ms
+I210322 23:02:27.094735 1226 sql/backfill.go:287  [n1,job=643510262208888833,scExec] Completed backfill for "flyway_schema_history", v=3, m=1
+I210322 23:02:27.096110 1226 sql/sqlbase/structured.go:1554  [n1,job=643510262208888833,scExec] publish: descID=56 (flyway_schema_history) version=4 mtime=1970-01-01 00:00:00 +0000 UTC
+I210322 23:02:27.099055 1226 sql/event_log.go:132  [n1,job=643510262208888833,scExec] Event: "finish_schema_change", target: 56, info: {MutationID:1}
+I210322 23:02:27.099062 1226 sql/schema_changer.go:706  [n1,job=643510262208888833,scExec] waiting for a single version of table 56...
+I210322 23:02:27.100417 1226 sql/lease.go:337  [n1,job=643510262208888833,scExec] waiting for 1 leases to expire: desc=[{flyway_schema_history 56 3}]
+I210322 23:02:27.101628 1329 sql/lease.go:943  new lease: 56("flyway_schema_history") ver=4:1616454451.818632569,0, refcount=0
+I210322 23:02:27.125339 1226 sql/schema_changer.go:708  [n1,job=643510262208888833,scExec] waiting for a single version of table 56... done (at v 4)
+I210322 23:02:27.125351 1226 jobs/registry.go:806  [n1] job 643510262208888833: stepping through state succeeded with error <nil>
+I210322 23:02:27.129425 1226 jobs/registry.go:961  [n1] job 643510262208888833: status succeeded after adoption finished
+I210322 23:02:35.000034 141 kv/kvserver/store.go:2470  [n1,s1] sstables (read amplification = 2):
+0 [ 100K 1 ]: 100K
+6 [ 571K 1 ]: 571K
+I210322 23:02:35.000109 141 kv/kvserver/store.go:2471  [n1,s1] 
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      1/0   100.43 KB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      3.4      0.03              0.00         1    0.029       0      0
+  L6      1/0   570.63 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0
+ Sum      2/0   671.05 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      3.4      0.03              0.00         1    0.029       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      3.4      0.03              0.00         1    0.029       0      0
+
+** Compaction Stats [default] **
+Priority    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+User      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      3.4      0.03              0.00         1    0.029       0      0
+Uptime(secs): 20.5 total, 20.5 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+estimated_pending_compaction_bytes: 0 B
+I210322 23:02:35.001517 147 server/status/runtime.go:498  [n1] runtime stats: 168 MiB RSS, 127 goroutines, 46 MiB/67 MiB/91 MiB GO alloc/idle/total, 14 MiB/17 MiB CGO alloc/total, 420.3 CGO/sec, 2.2/0.7 %(u/s)time, 0.0 %gc (1x), 29 KiB/31 KiB (r/w)net
+I210322 23:02:44.993612 147 server/status/runtime.go:498  [n1] runtime stats: 169 MiB RSS, 127 goroutines, 53 MiB/61 MiB/91 MiB GO alloc/idle/total, 14 MiB/17 MiB CGO alloc/total, 43.3 CGO/sec, 0.6/0.3 %(u/s)time, 0.0 %gc (0x), 0 B/0 B (r/w)net
+I210322 23:02:54.993217 147 server/status/runtime.go:498  [n1] runtime stats: 169 MiB RSS, 130 goroutines, 60 MiB/55 MiB/91 MiB GO alloc/idle/total, 14 MiB/17 MiB CGO alloc/total, 43.1 CGO/sec, 0.6/0.2 %(u/s)time, 0.0 %gc (0x), 1.9 KiB/2.6 KiB (r/w)net
+I210322 23:03:04.993429 147 server/status/runtime.go:498  [n1] runtime stats: 171 MiB RSS, 139 goroutines, 70 MiB/46 MiB/94 MiB GO alloc/idle/total, 14 MiB/17 MiB CGO alloc/total, 35.7 CGO/sec, 0.7/0.5 %(u/s)time, 0.0 %gc (0x), 2.0 KiB/2.0 KiB (r/w)net
+I210322 23:03:14.989155 142 gossip/gossip.go:567  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+gossip connectivity
+  n1 [sentinel];
+I210322 23:03:14.993715 147 server/status/runtime.go:498  [n1] runtime stats: 176 MiB RSS, 141 goroutines, 79 MiB/38 MiB/100 MiB GO alloc/idle/total, 14 MiB/17 MiB CGO alloc/total, 39.5 CGO/sec, 0.6/0.4 %(u/s)time, 0.0 %gc (0x), 2.0 KiB/2.1 KiB (r/w)net
+I210322 23:03:15.057329 2141 jobs/registry.go:806  [n1] job 643510419533955073: stepping through state running with error <nil>
+I210322 23:03:15.145546 2141 jobs/registry.go:806  [n1] job 643510419533955073: stepping through state succeeded with error <nil>
+I210322 23:03:15.150367 2141 jobs/registry.go:961  [n1] job 643510419533955073: status succeeded after adoption finished
+I210322 23:03:24.994451 147 server/status/runtime.go:498  [n1] runtime stats: 182 MiB RSS, 138 goroutines, 59 MiB/59 MiB/106 MiB GO alloc/idle/total, 14 MiB/18 MiB CGO alloc/total, 207.8 CGO/sec, 1.5/0.6 %(u/s)time, 0.0 %gc (1x), 1.1 KiB/1.0 KiB (r/w)net
+I210322 23:03:32.774522 1 cli/start.go:919  received signal 'terminated'
+I210322 23:03:32.775513 1 cli/start.go:1006  initiating graceful shutdown of server
+I210322 23:03:34.619253 2255 server/drain.go:173  [server drain process] drain remaining: 3
+I210322 23:03:34.619483 2255 server/drain.go:175  [server drain process] drain details: SQL clients: 1, table leases: 1, liveness record: 1
+I210322 23:03:34.823471 2255 server/drain.go:173  [server drain process] drain remaining: 0
+I210322 23:03:34.824063 2255 util/stop/stopper.go:539  [server drain process] quiescing
+I210322 23:03:34.994377 147 server/status/runtime.go:498  [n1] runtime stats: 184 MiB RSS, 92 goroutines, 59 MiB/59 MiB/106 MiB GO alloc/idle/total(stale), 14 MiB/18 MiB CGO alloc/total, 35.4 CGO/sec, 0.5/0.4 %(u/s)time, 0.0 %gc (0x), 1.8 KiB/1.7 KiB (r/w)net
+W210322 23:03:35.004658 148 ts/db.go:197  [n1,ts-poll] node unavailable; try another peer
+W210322 23:03:35.009441 128 server/node.go:801  [n1,summaries] error recording status summaries: node unavailable; try another peer
+I210322 23:03:35.104409 138 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (gc): node unavailable; try another peer
+I210322 23:03:35.105422 138 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (merge): node unavailable; try another peer
+I210322 23:03:35.106219 138 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (split): node unavailable; try another peer
+I210322 23:03:35.106809 138 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (replicate): node unavailable; try another peer
+I210322 23:03:35.107347 138 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (replicaGC): node unavailable; try another peer
+I210322 23:03:35.107905 138 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (raftlog): node unavailable; try another peer
+I210322 23:03:35.108306 138 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (raftsnapshot): node unavailable; try another peer
+I210322 23:03:35.108716 138 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (consistencyChecker): node unavailable; try another peer
+I210322 23:03:35.109125 138 kv/kvserver/queue.go:578  [n1,s1] rate limited in MaybeAdd (timeSeriesMaintenance): node unavailable; try another peer
+W210322 23:03:35.141371 182 jobs/registry.go:1224  job 643510223130984449: canceling due to liveness failure
+E210322 23:03:35.142191 568 jobs/registry.go:955  [n1] job 643510223130984449: adoption completed with error job 643510223130984449: node liveness error: restarting in background
+W210322 23:03:35.142721 568 kv/txn.go:607  [n1] failure aborting transaction: node unavailable; try another peer; abort caused by: context canceled
+E210322 23:03:35.143135 568 jobs/registry.go:959  [n1] job 643510223130984449: failed querying status: context canceled
+I210322 23:03:35.143589 2255 storage/rocksdb.go:746  closing rocksdb instance at "/cockroach/cockroach-data/cockroach-temp793077268"
+I210322 23:03:35.151102 2255 storage/rocksdb.go:746  closing rocksdb instance at "/cockroach/cockroach-data"
+I210322 23:03:35.156569 1 cli/start.go:1048  server drained and shutdown completed

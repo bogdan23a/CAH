@@ -1,0 +1,163 @@
+I210322 21:19:24.576521 1 util/log/sync_buffer.go:195 ⋮ [config] file created at: 2021/03/22 21:19:24
+I210322 21:19:24.576528 1 util/log/sync_buffer.go:195 ⋮ [config] running on machine: ‹192›
+I210322 21:19:24.576535 1 util/log/sync_buffer.go:195 ⋮ [config] binary: CockroachDB CCL v20.2.6 (x86_64-apple-darwin14, built 2021/03/15 18:01:29, go1.13.14)
+I210322 21:19:24.576538 1 util/log/sync_buffer.go:195 ⋮ [config] arguments: ‹[cockroach start --certs-dir=certs --store=node1 --listen-addr=localhost:26257 --http-addr=localhost:9000 --join=localhost:26257,localhost:26258,localhost:26259]›
+I210322 21:19:24.576546 1 util/log/sync_buffer.go:195 ⋮ [config] line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+W210322 21:19:24.576412 1 cli/start.go:987 ⋮ ‹Using the default setting for --cache (128 MiB).›
+‹  A significantly larger value is usually needed for good performance.›
+‹  If you have a dedicated server a reasonable setting is --cache=.25 (16 GiB).›
+I210322 21:19:24.576699 1 cli/start.go:1168 ⋮ ‹CockroachDB CCL v20.2.6 (x86_64-apple-darwin14, built 2021/03/15 18:01:29, go1.13.14)›
+I210322 21:19:24.577951 1 server/config.go:428 ⋮ system total memory: ‹64 GiB›
+I210322 21:19:24.577971 1 server/config.go:430 ⋮ server configuration:
+‹max offset             500000000›
+‹cache size             128 MiB›
+‹SQL memory pool size   16 GiB›
+‹scan interval          10m0s›
+‹scan min idle time     10ms›
+‹scan max idle time     1s›
+‹event log enabled      true›
+I210322 21:19:24.578032 1 cli/start.go:972 ⋮ process identity: ‹uid 501 euid 501 gid 20 egid 20›
+I210322 21:19:24.579465 1 cli/start.go:511 ⋮ GEOS loaded from directory ‹/usr/local/lib/cockroach›
+I210322 21:19:24.579480 1 cli/start.go:516 ⋮ starting cockroach node
+I210322 21:19:24.581447 43 rpc/tls.go:270 ⋮ [n?] server certificate addresses: ‹IP=; DNS=localhost; CN=node›
+I210322 21:19:24.581468 43 rpc/tls.go:319 ⋮ [n?] web UI certificate addresses: ‹IP=; DNS=localhost; CN=node›
+I210322 21:19:24.643749 43 server/server.go:790 ⋮ [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I210322 21:19:24.700998 43 server/config.go:619 ⋮ [n?] 1 storage engine‹› initialized
+I210322 21:19:24.701031 43 server/config.go:622 ⋮ [n?] ‹Pebble cache size: 128 MiB›
+I210322 21:19:24.701043 43 server/config.go:622 ⋮ [n?] ‹store 0: RocksDB, max size 0 B, max open file limit 10000›
+I210322 21:19:24.711697 64 server/server.go:1424 ⋮ [n?] connecting to gossip network to verify cluster ID ‹"0b16a4c2-5801-4802-9eca-a0e69d0e8fc9"›
+W210322 21:19:24.711779 43 gossip/gossip.go:1494 ⋮ [n?] no incoming or outgoing connections
+I210322 21:19:24.711810 43 gossip/gossip.go:403 ⋮ [n1] NodeDescriptor set to ‹node_id:1 address:<network_field:"tcp" address_field:"localhost:26257" > attrs:<> locality:<> ServerVersion:<major_val:20 minor_val:2 patch:0 unstable:0 > build_tag:"v20.2.6" started_at:1616447964711803000 cluster_name:"" sql_address:<network_field:"tcp" address_field:"localhost:26257" >›
+W210322 21:19:24.713076 68 vendor/google.golang.org/grpc/internal/channelz/logging.go:73 ⋮ ‹grpc: addrConn.createTransport failed to connect to {localhost:26258  <nil> 0 <nil>}. Err: connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused". Reconnecting...›
+I210322 21:19:24.713130 134 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322 ⋮ [n1] circuitbreaker: ‹gossip 127.0.0.1:26257->localhost:26258› tripped: ‹initial connection heartbeat failed›: ‹rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused"›
+I210322 21:19:24.713174 134 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447 ⋮ [n1] circuitbreaker: ‹gossip 127.0.0.1:26257->localhost:26258› event: ‹BreakerTripped›
+W210322 21:19:24.713185 134 gossip/client.go:118 ⋮ [n1] failed to start gossip client to ‹localhost:26258›: ‹initial connection heartbeat failed›: ‹rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused"›
+W210322 21:19:24.715857 369 kv/kvserver/replica_range_lease.go:556 ⋮ [n1,s1,r6/1:‹/Table/{SystemCon…-11}›] can't determine lease status of (n2,s2):2 due to node liveness error: node not in the liveness table
+(1) attached stack trace
+  -- stack trace:
+  | github.com/cockroachdb/cockroach/pkg/kv/kvserver.init
+  | 	/go/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/node_liveness.go:45
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5228
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5223
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5223
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5223
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5223
+  | runtime.main
+  | 	/usr/local/go/src/runtime/proc.go:190
+  | runtime.goexit
+  | 	/usr/local/go/src/runtime/asm_amd64.s:1357
+Wraps: (2) node not in the liveness table
+Error types: (1) *withstack.withStack (2) *errutil.leafError
+I210322 21:19:24.715945 64 server/server.go:1427 ⋮ [n1] node connected via gossip
+W210322 21:19:24.715959 369 kv/kvserver/store.go:1691 ⋮ [n1,s1,r6/1:‹/Table/{SystemCon…-11}›] could not gossip system config: ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+(1) ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+Error types: (1) *roachpb.NotLeaseHolderError
+I210322 21:19:24.716417 43 server/node.go:430 ⋮ [n1] initialized store [n1,s1]: disk (capacity=154 GiB, available=19 GiB, used=4.1 MiB, logicalBytes=75 MiB), ranges=40, leases=0, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=140.00 p75=9717.00 p90=94993.00 pMax=78558189.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I210322 21:19:24.716504 43 kv/kvserver/stores.go:236 ⋮ [n1] read 2 node addresses from persistent storage
+I210322 21:19:24.716511 261 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322 ⋮ [n1] circuitbreaker: ‹rpc 127.0.0.1:26257 [n2]› tripped: failed to resolve n2: unable to look up descriptor for n2
+I210322 21:19:24.716511 228 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322 ⋮ [n1] circuitbreaker: ‹rpc 127.0.0.1:26257 [n3]› tripped: failed to resolve n3: unable to look up descriptor for n3
+I210322 21:19:24.716533 261 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447 ⋮ [n1] circuitbreaker: ‹rpc 127.0.0.1:26257 [n2]› event: ‹BreakerTripped›
+I210322 21:19:24.716540 228 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447 ⋮ [n1] circuitbreaker: ‹rpc 127.0.0.1:26257 [n3]› event: ‹BreakerTripped›
+I210322 21:19:24.729774 43 server/node.go:489 ⋮ [n1] started with engine type ‹2›
+I210322 21:19:24.729792 43 server/node.go:491 ⋮ [n1] started with attributes ‹[]›
+I210322 21:19:24.729869 43 server/goroutinedumper/goroutinedumper.go:120 ⋮ [n1] writing goroutine dumps to ‹/Users/bogdan/IdeaProjects/cardsagainsthumanity/src/main/resources/db/node1/logs/goroutine_dump›
+I210322 21:19:24.729895 43 server/heapprofiler/heapprofiler.go:49 ⋮ [n1] writing go heap profiles to ‹/Users/bogdan/IdeaProjects/cardsagainsthumanity/src/main/resources/db/node1/logs/heap_profiler› at least every 1h0m0s
+I210322 21:19:24.729911 43 server/heapprofiler/cgoprofiler.go:53 ⋮ [n1] to enable jmalloc profiling: "export MALLOC_CONF=prof:true" or "ln -s prof:true /etc/malloc.conf"
+I210322 21:19:24.729921 43 server/heapprofiler/statsprofiler.go:54 ⋮ [n1] writing memory stats to ‹/Users/bogdan/IdeaProjects/cardsagainsthumanity/src/main/resources/db/node1/logs/heap_profiler› at last every 1h0m0s
+I210322 21:19:24.729938 43 server/server.go:1544 ⋮ [n1] starting https server at ‹127.0.0.1:9000› (use: ‹localhost:9000›)
+I210322 21:19:24.729954 43 server/server.go:1551 ⋮ [n1] starting grpc/postgres server at ‹127.0.0.1:26257›
+I210322 21:19:24.729965 43 server/server.go:1552 ⋮ [n1] advertising CockroachDB node at ‹localhost:26257›
+W210322 21:19:24.777793 369 kv/kvserver/store.go:1691 ⋮ [n1,s1,r6/1:‹/Table/{SystemCon…-11}›] could not gossip system config: ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+(1) ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+Error types: (1) *roachpb.NotLeaseHolderError
+W210322 21:19:24.887434 369 kv/kvserver/store.go:1691 ⋮ [n1,s1,r6/1:‹/Table/{SystemCon…-11}›] could not gossip system config: ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+(1) ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+Error types: (1) *roachpb.NotLeaseHolderError
+W210322 21:19:25.088038 369 kv/kvserver/store.go:1691 ⋮ [n1,s1,r6/1:‹/Table/{SystemCon…-11}›] could not gossip system config: ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+(1) ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+Error types: (1) *roachpb.NotLeaseHolderError
+W210322 21:19:25.450198 369 kv/kvserver/store.go:1691 ⋮ [n1,s1,r6/1:‹/Table/{SystemCon…-11}›] could not gossip system config: ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+(1) ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+Error types: (1) *roachpb.NotLeaseHolderError
+W210322 21:19:25.713312 68 vendor/google.golang.org/grpc/internal/channelz/logging.go:73 ⋮ ‹grpc: addrConn.createTransport failed to connect to {localhost:26258  <nil> 0 <nil>}. Err: connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...›
+W210322 21:19:25.714837 220 vendor/google.golang.org/grpc/internal/channelz/logging.go:73 ⋮ ‹grpc: addrConn.createTransport failed to connect to {localhost:26259  <nil> 0 <nil>}. Err: connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...›
+I210322 21:19:25.714888 424 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322 ⋮ [n1] circuitbreaker: ‹gossip 127.0.0.1:26257->localhost:26259› tripped: ‹initial connection heartbeat failed›: ‹rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused"›
+I210322 21:19:25.714928 424 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447 ⋮ [n1] circuitbreaker: ‹gossip 127.0.0.1:26257->localhost:26259› event: ‹BreakerTripped›
+W210322 21:19:25.714940 424 gossip/client.go:118 ⋮ [n1] failed to start gossip client to ‹localhost:26259›: ‹initial connection heartbeat failed›: ‹rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused"›
+I210322 21:19:25.920157 460 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322 ⋮ [n1] circuitbreaker: ‹rpc 127.0.0.1:26257 [n3]› tripped: failed to resolve n3: unable to look up descriptor for n3
+I210322 21:19:25.920151 459 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322 ⋮ [n1] circuitbreaker: ‹rpc 127.0.0.1:26257 [n2]› tripped: failed to resolve n2: unable to look up descriptor for n2
+I210322 21:19:25.920212 460 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447 ⋮ [n1] circuitbreaker: ‹rpc 127.0.0.1:26257 [n3]› event: ‹BreakerTripped›
+I210322 21:19:25.920215 459 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447 ⋮ [n1] circuitbreaker: ‹rpc 127.0.0.1:26257 [n2]› event: ‹BreakerTripped›
+W210322 21:19:26.210926 369 kv/kvserver/store.go:1691 ⋮ [n1,s1,r6/1:‹/Table/{SystemCon…-11}›] could not gossip system config: ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+(1) ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+Error types: (1) *roachpb.NotLeaseHolderError
+W210322 21:19:26.715014 220 vendor/google.golang.org/grpc/internal/channelz/logging.go:73 ⋮ ‹grpc: addrConn.createTransport failed to connect to {localhost:26259  <nil> 0 <nil>}. Err: connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...›
+W210322 21:19:27.163535 369 kv/kvserver/store.go:1691 ⋮ [n1,s1,r6/1:‹/Table/{SystemCon…-11}›] could not gossip system config: ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+(1) ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+Error types: (1) *roachpb.NotLeaseHolderError
+W210322 21:19:28.223628 369 kv/kvserver/store.go:1691 ⋮ [n1,s1,r6/1:‹/Table/{SystemCon…-11}›] could not gossip system config: ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+(1) ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+Error types: (1) *roachpb.NotLeaseHolderError
+W210322 21:19:29.230521 410 kv/kvserver/node_liveness.go:748 ⋮ [n1,liveness-hb] slow heartbeat took 4.50047s; err=unable to get liveness: ‹aborted in DistSender: context deadline exceeded›
+W210322 21:19:29.230593 410 kv/kvserver/node_liveness.go:650 ⋮ [n1,liveness-hb] failed node liveness heartbeat: ‹operation "node liveness heartbeat" timed out after 4.5s›: unable to get liveness: ‹aborted in DistSender: context deadline exceeded›
+(1) ‹operation "node liveness heartbeat" timed out after 4.5s›
+Wraps: (2) attached stack trace
+  -- stack trace:
+  | github.com/cockroachdb/cockroach/pkg/kv/kvserver.(*NodeLiveness).heartbeatInternal
+  | 	/go/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/node_liveness.go:810
+  | github.com/cockroachdb/cockroach/pkg/kv/kvserver.(*NodeLiveness).StartHeartbeat.func1.1
+  | 	/go/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/node_liveness.go:638
+  | github.com/cockroachdb/cockroach/pkg/util/contextutil.RunWithTimeout
+  | 	/go/src/github.com/cockroachdb/cockroach/pkg/util/contextutil/context.go:135
+  | github.com/cockroachdb/cockroach/pkg/kv/kvserver.(*NodeLiveness).StartHeartbeat.func1
+  | 	/go/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/node_liveness.go:630
+  | github.com/cockroachdb/cockroach/pkg/util/stop.(*Stopper).RunWorker.func1
+  | 	/go/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:222
+  | runtime.goexit
+  | 	/usr/local/go/src/runtime/asm_amd64.s:1357
+Wraps: (3) unable to get liveness
+Wraps: (4) ‹aborted in DistSender: context deadline exceeded›
+Error types: (1) *contextutil.TimeoutError (2) *withstack.withStack (3) *errutil.withPrefix (4) *roachpb.internalError
+
+An inability to maintain liveness will prevent a node from participating in a
+cluster. If this problem persists, it may be a sign of resource starvation or
+of network connectivity problems. For help troubleshooting, visit:
+
+    https://www.cockroachlabs.com/docs/stable/cluster-setup-troubleshooting.html#node-liveness-issues
+
+W210322 21:19:29.328163 369 kv/kvserver/store.go:1691 ⋮ [n1,s1,r6/1:‹/Table/{SystemCon…-11}›] could not gossip system config: ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+(1) ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+Error types: (1) *roachpb.NotLeaseHolderError
+W210322 21:19:29.717015 143 kv/kvserver/replica_range_lease.go:556 ⋮ [n1,s1,r38/1:‹/Table/5{7-9}›] can't determine lease status of (n3,s3):3 due to node liveness error: node not in the liveness table
+(1) attached stack trace
+  -- stack trace:
+  | github.com/cockroachdb/cockroach/pkg/kv/kvserver.init
+  | 	/go/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/node_liveness.go:45
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5228
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5223
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5223
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5223
+  | runtime.doInit
+  | 	/usr/local/go/src/runtime/proc.go:5223
+  | runtime.main
+  | 	/usr/local/go/src/runtime/proc.go:190
+  | runtime.goexit
+  | 	/usr/local/go/src/runtime/asm_amd64.s:1357
+Wraps: (2) node not in the liveness table
+Error types: (1) *withstack.withStack (2) *errutil.leafError
+W210322 21:19:30.278137 369 kv/kvserver/store.go:1691 ⋮ [n1,s1,r6/1:‹/Table/{SystemCon…-11}›] could not gossip system config: ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+(1) ‹[NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown›
+Error types: (1) *roachpb.NotLeaseHolderError
+I210322 21:19:30.291793 1 cli/start.go:736 ⋮ received signal 'interrupt'
+I210322 21:19:30.291859 1 cli/start.go:821 ⋮ initiating graceful shutdown of server
+I210322 21:19:30.291874 1 cli/start.go:878 ⋮ too early to drain; used hard shutdown instead
+E210322 21:19:30.291981 1 cli/error.go:398 ⋮ ‹ERROR: interrupted›
