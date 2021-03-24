@@ -5,6 +5,7 @@ import com.cardsagainsthumanity.service.UserService;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Put;
+import io.micronaut.http.annotation.RequestAttribute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,9 +27,12 @@ public class UserController {
     }
 
     @Put("/{name}")
-    public Optional<User> save(String name) {
+    public Optional<User> save(@RequestAttribute("name") Optional<String> name) {
         try {
-            return Optional.of(userService.save(name));
+            LOG.debug("Saved user {}", name);
+            if (name.isPresent()) {
+                return userService.save(name.get());
+            }
         } catch (ConstraintViolationException e) {
             LOG.warn("User {} violates DB constrains. ", name);
         }

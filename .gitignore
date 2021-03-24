@@ -15,3 +15,7 @@ out/
 src/main/resources/db/certs/
 src/main/resources/db/ca
 docker/data/*
+/src/main/resources/db/node1/
+/src/main/resources/db/node2/
+/src/main/resources/db/node3/
+/src/main/resources/db/cockroach-data/logs

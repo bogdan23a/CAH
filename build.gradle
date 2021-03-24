@@ -1,6 +1,7 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "6.1.0"
     id("io.micronaut.application") version "1.4.2"
+    id "com.fizzed.rocker" version "1.2.3"
 }
 
 version = "0.1"
@@ -40,11 +41,17 @@ dependencies {
     annotationProcessor("io.micronaut.data:micronaut-data-processor:2.3.1")
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa:2.3.1")
     runtime("com.h2database:h2")
+    implementation("io.micronaut.views:micronaut-views-handlebars")
 
-//    compile 'org.graalvm.sdk:graal-sdk:20.3.1.2'
-//    compile 'org.graalvm.nativeimage:svm:20.3.1.2'
 }
 
+sourceSets {
+    main {
+        rocker {
+            srcDir('src/main/resources')
+        }
+    }
+}
 
 application {
     mainClass.set("com.cardsagainsthumanity.Application")

@@ -6,6 +6,7 @@ import com.cardsagainsthumanity.repository.UserRepository;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -27,9 +28,9 @@ public class UserService {
         return  userRepository.findByRoomToken(roomToken);
     }
 
-    public User save(String userName) {
+    public Optional<User> save(String userName) {
         User user = new User();
         user.setName(userName);
-        return userRepository.save(user);
+        return Optional.of(userRepository.save(user));
     }
 }
