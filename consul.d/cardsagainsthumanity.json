@@ -1,6 +1,6 @@
 {
   "service": {
-    "name": "cardsagainsthumanity",
+    "name": "engine",
     "tags": [],
     "port": 1000
   }

@@ -1,0 +1,29 @@
+micronaut:
+  application:
+    name: engine
+  server:
+    port: 1000
+  config-client:
+    enabled: true
+  cors:
+    enabled: true
+  router:
+    static-resources:
+      default:
+        enabled: true
+        mapping: "/**"
+        paths: "classpath:public"
+consul:
+  client:
+    registration:
+      enabled: true
+      tags:
+        - version=${version}
+        - micronaut
+      retry-count: 1
+      fail-fast: false
+      check:
+        http: true
+      meta:
+        version: ${application.version:dev}
+    defaultZone: "${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}"

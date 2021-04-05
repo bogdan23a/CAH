@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: cardsagainsthumanity
+    name: engine
   server:
     port: 1000
   config-client:
@@ -19,7 +19,7 @@ datasources:
     url: jdbc:postgresql://localhost:26257/cardsagainsthumanity
     driverClassName: org.postgresql.Driver
     username: 'dev'
-    password: 'rengarmergelagradinita'
+    password: ''
     schema-generate: NONE
     dialect: POSTGRES
 jpa:
@@ -31,19 +31,37 @@ jpa:
       hbm2ddl:
         auto: update
       show_sql: true
-#consul:
-#  client:
-#    port: 8500
-#    registration:
-#      enabled: true
-#    defaultZone: ${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}
+
+consul:
+  client:
+    registration:
+      enabled: true
+      tags:
+        - version=${version}
+        - micronaut
+      retry-count: 5
+      fail-fast: false
+      check:
+        http: true
+      meta:
+        version: ${application.version:dev}
+    defaultZone: "${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}"
+
 flyway:
   datasources:
     default:
       enabled: true
       locations:
         - classpath:db/migration
+        -
 endpoints:
   flyway:
     enabled: true
     sensitive: false
+  loggers:
+    enabled: true
+    sensitive: false
+
+version: 1.2.3
+rabbitmq:
+  uri: amqp://localhost:5672
